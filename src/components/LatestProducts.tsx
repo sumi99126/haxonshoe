@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './LatestProducts.css';
 
 export interface LatestProduct {
@@ -56,8 +56,32 @@ export const LatestProducts: React.FC<LatestProductsProps> = ({
   onAddToCart,
   onOpenProductPage,
 }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="latest-products-section" aria-label="Latest Products">
+    <section
+      ref={sectionRef}
+      className={`latest-products-section ${isVisible ? 'is-visible' : ''}`}
+      aria-label="Latest Products"
+    >
       <div className="latest-products-container">
         {/* Section Header */}
         <div className="latest-section-header">
@@ -80,10 +104,11 @@ export const LatestProducts: React.FC<LatestProductsProps> = ({
 
           {/* Right Column: 5 Vertical Product Items Stacked */}
           <div className="latest-products-list">
-            {latestProductsData.map((product) => (
+            {latestProductsData.map((product, idx) => (
               <div
                 key={product.id}
                 className="latest-product-row"
+                style={{ '--row-index': idx } as React.CSSProperties}
                 onClick={() => {
                   if (onOpenProductPage) {
                     onOpenProductPage();

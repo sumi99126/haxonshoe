@@ -64,20 +64,17 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCart, onAddToCart }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [isAutoPlayPaused, setIsAutoPlayPaused] = useState<boolean>(false);
 
   const activeShoe = haxonProducts[selectedIndex];
 
-  // Auto-rotate shoes every 3.8 seconds
+  // Auto-rotate shoes continuously every 2.5 seconds
   useEffect(() => {
-    if (isAutoPlayPaused) return;
-
     const timer = setInterval(() => {
       setSelectedIndex((prev) => (prev + 1) % haxonProducts.length);
-    }, 3800);
+    }, 2500);
 
     return () => clearInterval(timer);
-  }, [isAutoPlayPaused]);
+  }, []);
 
   const handleProductCardClick = () => {
     if (onAddToCart) {
@@ -95,8 +92,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, onAddToCart }) => {
     <section
       className="haxon-hero-compact"
       aria-label="Hero Spotlight"
-      onMouseEnter={() => setIsAutoPlayPaused(true)}
-      onMouseLeave={() => setIsAutoPlayPaused(false)}
     >
       {/* Background Watermark Slogan - Positioned at Bottom like Reference */}
       <div className="hero-watermark-slogan" aria-hidden="true">
@@ -122,7 +117,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, onAddToCart }) => {
         <div className="hero-content-grid">
           {/* Left Column: Description & Clean Edition Switcher */}
           <div className="hero-left-panel">
-            <p className="hero-side-desc">{activeShoe.description}</p>
+            <p key={activeShoe.id} className="hero-side-desc hero-fade-text">
+              {activeShoe.description}
+            </p>
 
             {/* Quick Colorway Switcher Thumbnails */}
             <div className="hero-edition-selector">
@@ -135,7 +132,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, onAddToCart }) => {
                     className={`edition-thumb-btn ${idx === selectedIndex ? 'active' : ''}`}
                     onClick={() => {
                       setSelectedIndex(idx);
-                      setIsAutoPlayPaused(true);
                     }}
                     title={shoe.name}
                     aria-label={`Select ${shoe.name}`}
@@ -173,8 +169,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, onAddToCart }) => {
                   alt={activeShoe.name}
                   className="hero-shoe-image-exact"
                   style={{
-                    transform: `rotate(${activeShoe.rotationAngle}deg)`,
-                  }}
+                    '--shoe-rotate': `${activeShoe.rotationAngle}deg`,
+                  } as React.CSSProperties}
                 />
               </div>
               <div className="hero-shoe-ground-shadow" />
@@ -211,7 +207,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCart, onAddToCart }) => {
 
             {/* Floating Product Badge Card */}
             <div
-              className="hero-floating-badge"
+              key={activeShoe.id}
+              className="hero-floating-badge hero-fade-badge"
               onClick={handleProductCardClick}
               role="button"
               tabIndex={0}

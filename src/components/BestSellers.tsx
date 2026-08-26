@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Heart, ShoppingBag, Check, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import './BestSellers.css';
 
@@ -109,6 +109,25 @@ export const BestSellers: React.FC<BestSellersProps> = ({ onAddToCart, onOpenPro
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Exactly 5 cards visible per row on desktop
   const visibleCards = 5;
@@ -158,7 +177,11 @@ export const BestSellers: React.FC<BestSellersProps> = ({ onAddToCart, onOpenPro
   };
 
   return (
-    <section className="best-sellers-section" aria-label="Best Sellers">
+    <section
+      ref={sectionRef}
+      className={`best-sellers-section ${isVisible ? 'is-visible' : ''}`}
+      aria-label="Best Sellers"
+    >
       <div className="best-sellers-container">
         {/* Section Header */}
         <div className="best-sellers-header">
@@ -216,12 +239,16 @@ export const BestSellers: React.FC<BestSellersProps> = ({ onAddToCart, onOpenPro
               transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
             }}
           >
-            {bestSellersData.map((product) => {
+            {bestSellersData.map((product, idx) => {
               const isLiked = !!wishlist[product.id];
               const isAdded = !!addedItems[product.id];
 
               return (
-                <div key={product.id} className="carousel-slide">
+                <div
+                  key={product.id}
+                  className="carousel-slide"
+                  style={{ '--slide-index': idx } as React.CSSProperties}
+                >
                   <div className="product-card-ref" onClick={() => onOpenProductPage?.()}>
                     {/* Top Row: Badge & Wishlist Heart */}
                     <div className="card-top-bar">

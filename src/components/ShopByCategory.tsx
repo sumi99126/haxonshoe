@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import './ShopByCategory.css';
 
@@ -60,6 +60,26 @@ interface ShopByCategoryProps {
 }
 
 export const ShopByCategory: React.FC<ShopByCategoryProps> = ({ onCategorySelect }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleCategoryClick = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
     if (onCategorySelect) {
@@ -68,7 +88,12 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({ onCategorySelect
   };
 
   return (
-    <section className="shop-category-section" id="collection" aria-label="Shop by Category">
+    <section
+      ref={sectionRef}
+      className={`shop-category-section ${isVisible ? 'is-visible' : ''}`}
+      id="collection"
+      aria-label="Shop by Category"
+    >
       <div className="shop-category-container">
         {/* Section Header */}
         <div className="shop-category-header">
@@ -84,11 +109,12 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({ onCategorySelect
 
         {/* Categories Grid */}
         <div className="shop-category-grid">
-          {categories.map((category) => (
+          {categories.map((category, idx) => (
             <a
               key={category.id}
               href={category.link}
               className="category-card"
+              style={{ '--card-index': idx } as React.CSSProperties}
               onClick={(e) => handleCategoryClick(category.id, e)}
             >
               <div className="category-image-wrapper">

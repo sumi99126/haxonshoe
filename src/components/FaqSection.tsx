@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import './FaqSection.css';
 
@@ -56,18 +56,38 @@ const col2Faqs: FaqItem[] = [
 
 export const FaqSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>('faq-1');
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const toggleFaq = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
 
   const renderFaqColumn = (faqs: FaqItem[]) => {
-    return faqs.map((faq) => {
+    return faqs.map((faq, idx) => {
       const isOpen = openId === faq.id;
       return (
         <div
           key={faq.id}
           className={`faq-card ${isOpen ? 'active' : ''}`}
+          style={{ '--faq-index': idx } as React.CSSProperties}
           onClick={() => toggleFaq(faq.id)}
         >
           <div className="faq-question-row">
@@ -89,7 +109,12 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="faq-section" id="faqs" aria-label="Frequently Asked Questions">
+    <section
+      ref={sectionRef}
+      className={`faq-section ${isVisible ? 'is-visible' : ''}`}
+      id="faqs"
+      aria-label="Frequently Asked Questions"
+    >
       <div className="faq-container">
         {/* Section Header */}
         <div className="faq-header">

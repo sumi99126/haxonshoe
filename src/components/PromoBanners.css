@@ -26,11 +26,19 @@
   justify-content: space-between;
   padding: 36px 40px;
   box-sizing: border-box;
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
+  opacity: 0;
+  transform: scale(0.86);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  transition-delay: calc(var(--banner-index, 0) * 0.18s);
 }
 
-.promo-banner-card:hover {
-  transform: translateY(-4px);
+.promo-banners-section.is-visible .promo-banner-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.promo-banners-section.is-visible .promo-banner-card:hover {
+  transform: translateY(-4px) scale(1.01);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 

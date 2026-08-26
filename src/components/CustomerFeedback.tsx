@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './CustomerFeedback.css';
 
 export interface ReviewItem {
@@ -81,12 +81,36 @@ const row2Reviews: ReviewItem[] = [
 ];
 
 export const CustomerFeedback: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   // Duplicate arrays 3 times for a seamless infinite marquee loop
   const loopRow1 = [...row1Reviews, ...row1Reviews, ...row1Reviews];
   const loopRow2 = [...row2Reviews, ...row2Reviews, ...row2Reviews];
 
   return (
-    <section className="feedback-section" aria-label="Customer Feedback">
+    <section
+      ref={sectionRef}
+      className={`feedback-section ${isVisible ? 'is-visible' : ''}`}
+      aria-label="Customer Feedback"
+    >
       <div className="feedback-container">
         {/* Section Header */}
         <div className="feedback-header">
