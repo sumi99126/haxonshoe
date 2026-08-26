@@ -1,0 +1,262 @@
+/* HAXON Shop By Category Section */
+.shop-category-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 44px 0;
+  position: relative;
+}
+
+.header-accent-line {
+  width: 48px;
+  height: 3px;
+  background-color: #d31018;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.shop-category-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.shop-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.shop-category-title {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #111111;
+  margin: 0;
+}
+
+.view-all-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #111111;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.view-all-arrow {
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.view-all-link:hover {
+  color: #d31018; /* HAXON signature red */
+}
+
+.view-all-link:hover .view-all-arrow {
+  transform: translateX(4px);
+}
+
+/* Grid */
+.shop-category-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+/* Card Container */
+.category-card {
+  display: block;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  background-color: #1a1a1a;
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Image & Overlay */
+.category-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.08);
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.1) 80%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.category-card:hover .category-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.94) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.15) 85%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+/* Content Bottom */
+.category-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.category-card:hover .category-content {
+  transform: translateY(-2px);
+}
+
+.category-name {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.category-shop-now {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.25s ease;
+}
+
+.category-shop-now::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background-color: #ffffff;
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), left 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.category-card:hover .category-shop-now {
+  color: #ffffff;
+}
+
+.category-card:hover .category-shop-now::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Responsive Breakdown */
+@media (max-width: 1200px) {
+  .shop-category-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-category-section {
+    padding: 32px 0;
+  }
+
+  .shop-category-header {
+    margin-bottom: 20px;
+  }
+
+  .shop-category-title {
+    font-size: 18px;
+  }
+
+  .view-all-link {
+    font-size: 12px;
+  }
+
+  .shop-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .category-name {
+    font-size: 17px;
+  }
+
+  .category-content {
+    padding: 16px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-category-container {
+    padding: 0 16px;
+  }
+
+  .shop-category-grid {
+    gap: 12px;
+  }
+
+  .category-card {
+    border-radius: 12px;
+  }
+
+  .category-name {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .category-shop-now {
+    font-size: 10px;
+  }
+}

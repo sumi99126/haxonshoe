@@ -1,0 +1,838 @@
+/* HAXON Single Product Detail Page (PDP) Styling */
+.pdp-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 32px 0 60px 0;
+  min-height: 80vh;
+}
+
+.pdp-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Breadcrumbs Header Bar */
+.pdp-breadcrumbs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eaedf1;
+}
+
+.pdp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f3f4f6;
+  color: #111111;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pdp-back-btn:hover {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.pdp-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #6c757d;
+}
+
+.crumb-link {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.crumb-link:hover {
+  color: #d31018;
+}
+
+.crumb-sep {
+  color: #cbd5e1;
+}
+
+.crumb-active {
+  color: #111111;
+  font-weight: 700;
+}
+
+/* 2-Column Main Product Grid */
+.pdp-main-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Left Column: Image Gallery */
+.pdp-gallery-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+}
+
+.pdp-main-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  border: 1px solid #eaedf1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+}
+
+.pdp-main-img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.pdp-main-image-wrap:hover .pdp-main-img {
+  transform: scale(1.08);
+}
+
+.pdp-badge-pill {
+  position: absolute;
+  top: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.pdp-badge-pill.new {
+  left: 16px;
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.pdp-badge-pill.discount {
+  left: 130px;
+  background-color: #d31018;
+  color: #ffffff;
+}
+
+.pdp-heart-floating {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #eaedf1;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pdp-heart-floating:hover {
+  transform: scale(1.1);
+}
+
+/* Thumbnails Grid */
+.pdp-thumbnails-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.pdp-thumb-btn {
+  aspect-ratio: 4 / 3;
+  background-color: #f8f9fa;
+  border: 2px solid #eaedf1;
+  border-radius: 12px;
+  padding: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdp-thumb-btn:hover,
+.pdp-thumb-btn.selected {
+  border-color: #d31018;
+  box-shadow: 0 4px 12px rgba(211, 16, 24, 0.15);
+}
+
+.pdp-thumb-img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+/* Right Column: Product Information */
+.pdp-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.pdp-brand-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #d31018;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.pdp-title {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(24px, 2.4vw, 30px);
+  font-weight: 700;
+  letter-spacing: 0;
+  color: #111111;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.pdp-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.pdp-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pdp-rating-score {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #111111;
+}
+
+.pdp-review-count {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.pdp-stock-status {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #16a34a;
+  background-color: #f0fdf4;
+  padding: 3px 9px;
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+/* Price Card */
+.pdp-price-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+
+.pdp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.pdp-price-current {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.pdp-price-old {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.pdp-save-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  background-color: #d31018;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.pdp-vat-note {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  color: #64748b;
+  margin: 6px 0 0 0;
+}
+
+/* Option Sections (Colors & Sizes) */
+.pdp-option-section {
+  margin-bottom: 24px;
+}
+
+.option-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.option-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.option-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.color-swatches-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.color-swatch-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  padding: 3px;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.color-swatch-btn:hover,
+.color-swatch-btn.selected {
+  border-color: #111111;
+  transform: scale(1.1);
+}
+
+.swatch-color {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.size-guide-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #111111;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-guide-trigger:hover {
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+/* Sizes Grid */
+.sizes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.size-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 6px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-btn:hover {
+  border-color: #111111;
+}
+
+.size-btn.selected {
+  border-color: #111111;
+  background-color: #111111;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.size-us {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.size-eu {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5px;
+  opacity: 0.7;
+}
+
+/* Action Block (Quantity & Add to Cart) */
+.pdp-action-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.qty-selector {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  height: 52px;
+  padding: 0 6px;
+  background-color: #ffffff;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.qty-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.qty-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 0 12px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.pdp-add-cart-btn {
+  flex: 1;
+  height: 46px;
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pdp-add-cart-btn:hover {
+  background-color: #d31018;
+}
+
+.pdp-add-cart-btn.success {
+  background-color: #16a34a;
+}
+
+/* Trust Badges Grid */
+.pdp-trust-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  background-color: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.trust-icon {
+  color: #d31018;
+  flex-shrink: 0;
+}
+
+.trust-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #111111;
+}
+
+.trust-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+/* Tabs Section */
+.pdp-tabs-section {
+  margin-top: 60px;
+  border-top: 1px solid #eaedf1;
+  padding-top: 40px;
+}
+
+.pdp-tabs-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid #eaedf1;
+  overflow-x: auto;
+}
+
+.pdp-tab-btn {
+  background: none;
+  border: none;
+  padding: 14px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.pdp-tab-btn:hover {
+  color: #111111;
+}
+
+.pdp-tab-btn.active {
+  color: #d31018;
+}
+
+.pdp-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #d31018;
+  border-radius: 2px;
+}
+
+.pdp-tab-content {
+  padding: 28px 0;
+}
+
+.tab-pane h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0 0 12px 0;
+}
+
+.tab-pane p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 14px;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specs-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+}
+
+.specs-table td:first-child {
+  font-weight: 700;
+  color: #111111;
+  width: 220px;
+}
+
+.specs-table td:last-child {
+  color: #64748b;
+}
+
+/* Reviews Summary */
+.reviews-summary-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #f8fafc;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.rev-big-score {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: #111111;
+}
+
+.rev-stars-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.sample-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sample-review-card {
+  border: 1px solid #eaedf1;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.rev-author-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
+
+.verified-badge {
+  font-size: 11px;
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.rev-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Size Guide Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: modal-pop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-pop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #eaedf1;
+}
+
+.modal-header h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px 24px;
+}
+
+.size-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.size-guide-table th {
+  background-color: #f8fafc;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #111111;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.size-guide-table td {
+  padding: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+}
+
+/* Responsive Breakdown */
+@media (max-width: 992px) {
+  .pdp-main-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pdp-gallery-col {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .pdp-wrapper {
+    padding: 20px 0 40px 0;
+  }
+
+  .pdp-container {
+    padding: 0 16px;
+  }
+
+  .pdp-title {
+    font-size: 22px;
+  }
+
+  .pdp-price-current {
+    font-size: 22px;
+  }
+
+  .sizes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .pdp-action-block {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .qty-selector {
+    height: 48px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .pdp-add-cart-btn {
+    width: 100%;
+    height: 52px;
+    min-height: 52px;
+    font-size: 13.5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

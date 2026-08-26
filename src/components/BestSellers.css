@@ -1,0 +1,428 @@
+/* HAXON Best Sellers Products Section - Exact Reference Matched Design */
+.best-sellers-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 44px 0 16px 0;
+  position: relative;
+}
+
+.header-accent-line {
+  width: 48px;
+  height: 3px;
+  background-color: #d31018;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.best-sellers-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.best-sellers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.best-sellers-title {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #111111;
+  margin: 0;
+}
+
+.header-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.carousel-nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-arrow-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #e2e5eb;
+  background-color: #ffffff;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-arrow-btn:hover {
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #111111;
+  transform: scale(1.06);
+}
+
+.best-sellers-view-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #111111;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.best-sellers-view-all .view-all-arrow {
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.best-sellers-view-all:hover {
+  color: #d31018; /* HAXON signature red */
+}
+
+.best-sellers-view-all:hover .view-all-arrow {
+  transform: translateX(4px);
+}
+
+/* Carousel Track & Slider */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0 8px 0;
+}
+
+/* Floating Right Arrow Button (Matching reference screenshot) */
+.floating-next-btn {
+  position: absolute;
+  right: 6px;
+  top: 44%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-next-btn:hover {
+  background-color: #111111;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Exactly 5 Cards Per Row on Desktop */
+.carousel-slide {
+  flex: 0 0 20%; /* 5 cards = 20% width per slide */
+  max-width: 20%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* Reference Card Styling */
+.product-card-ref {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff; /* Pure white background */
+  border-radius: 20px;
+  border: 1px solid #eaedf1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03); /* Richer, elegant shadow in normal state */
+  padding: 14px 14px 16px 14px;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  cursor: pointer;
+}
+
+.product-card-ref:hover {
+  transform: translateY(-8px);
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06); /* Deeper, premium shadow on hover */
+  border-color: rgba(211, 16, 24, 0.3);
+}
+
+/* Card Top Bar */
+.card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 28px;
+  z-index: 5;
+}
+
+/* Soft Badge Pills */
+.card-badge-pill {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.card-badge-pill.new {
+  background-color: #e6f4ea;
+  color: #1e7e34;
+}
+
+.card-badge-pill.discount {
+  background-color: #fce8e6;
+  color: #d93025;
+}
+
+.card-badge-pill.hot {
+  background-color: #fef7e0;
+  color: #b06000;
+}
+
+/* Heart Wishlist Button */
+.card-heart-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.card-heart-btn:hover {
+  transform: scale(1.2);
+}
+
+.card-heart-btn.active .heart-icon {
+  animation: heart-pop 0.3s ease;
+}
+
+@keyframes heart-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* Image Wrapper */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 12px 0;
+  overflow: hidden;
+}
+
+.card-product-img {
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.product-card-ref:hover .card-product-img {
+  transform: scale(1.08);
+}
+
+/* Card Add Button Overlay - Compact & Minimal */
+.card-add-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease, background-color 0.2s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  z-index: 6;
+}
+
+.product-card-ref:hover .card-add-btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-add-btn:hover {
+  background-color: #d31018;
+}
+
+.card-add-btn.added {
+  background-color: #10b981;
+}
+
+/* Content Block */
+.card-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: auto;
+}
+
+.card-product-name {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-product-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 450;
+  color: #8c93a0;
+  margin: 0 0 8px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bottom Row: Price, Rating, Sizes */
+.card-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.card-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.card-price-main {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #111111;
+}
+
+.card-price-old {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  color: #a0a6b2;
+  text-decoration: line-through;
+}
+
+.card-rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3b404c;
+}
+
+.card-sizes-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #8c93a0;
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .carousel-slide {
+    flex: 0 0 25%; /* 4 cards on medium screens */
+    max-width: 25%;
+  }
+}
+
+@media (max-width: 900px) {
+  .carousel-slide {
+    flex: 0 0 33.333%; /* 3 cards on tablets */
+    max-width: 33.333%;
+  }
+}
+
+@media (max-width: 640px) {
+  .best-sellers-section {
+    padding: 32px 0;
+  }
+
+  .carousel-slide {
+    flex: 0 0 50%; /* 2 cards on mobile */
+    max-width: 50%;
+    padding: 0 4px;
+  }
+
+  .product-card-ref {
+    padding: 10px 10px 12px 10px;
+    border-radius: 14px;
+  }
+
+  .card-product-name {
+    font-size: 11.5px;
+  }
+
+  .card-product-subtitle {
+    font-size: 10px;
+  }
+
+  .card-price-main {
+    font-size: 13px;
+  }
+
+  .card-sizes-tag {
+    display: none; /* Hide sizes on small mobile screens to keep layout clean */
+  }
+
+  .floating-next-btn {
+    display: none;
+  }
+}

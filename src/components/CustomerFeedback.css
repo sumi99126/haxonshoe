@@ -1,0 +1,201 @@
+/* HAXON Customer Feedback Dual Opposite Marquee Section */
+.feedback-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #eaedf1;
+}
+
+.feedback-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Header */
+.feedback-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 36px auto;
+  padding: 0 24px;
+}
+
+.feedback-title {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #111111;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Red Accent Divider Bar */
+.section-divider {
+  width: 54px;
+  height: 3.5px;
+  background-color: #d31018; /* HAXON signature red */
+  border-radius: 2px;
+  margin: 12px auto 14px auto;
+}
+
+.feedback-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Dual Marquee Wrapper with Soft Edge Fade */
+.feedback-marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 6%,
+    rgba(0, 0, 0, 1) 94%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 6%,
+    rgba(0, 0, 0, 1) 94%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.marquee-row {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.marquee-row:hover .marquee-content {
+  animation-play-state: paused; /* Pause on hover */
+}
+
+/* Row 1: Leftward Scroll */
+.marquee-row-left .marquee-content {
+  animation: scroll-left 32s linear infinite;
+}
+
+/* Row 2: Rightward Scroll (Opposite Direction) */
+.marquee-row-right .marquee-content {
+  animation: scroll-right 32s linear infinite;
+}
+
+/* Review Card Design */
+.review-card {
+  width: 310px;
+  min-width: 310px;
+  background-color: #ffffff;
+  border: 1px solid #eaedf1;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.review-avatar-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 2px solid #eaedf1;
+}
+
+.review-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-author {
+  font-family: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111111;
+  margin: 0 0 4px 0;
+}
+
+.review-stars {
+  color: #ffb800;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.review-comment {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.48;
+  color: #525866;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Keyframes for Continuous Marquee */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.3333%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-33.3333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Breakdown */
+@media (max-width: 768px) {
+  .feedback-section {
+    padding: 32px 0;
+  }
+
+  .review-card {
+    width: 260px;
+    min-width: 260px;
+    padding: 18px 14px;
+  }
+
+  .marquee-row-left .marquee-content,
+  .marquee-row-right .marquee-content {
+    animation-duration: 22s;
+  }
+}

@@ -1,0 +1,134 @@
+/* HAXON Monochromatic Black Brand Logos Infinite Marquee - User Cutout PNGs */
+.brand-marquee-section {
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #eaedf1;
+  border-bottom: 1px solid #eaedf1;
+  padding: 44px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+}
+
+.brand-marquee-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  /* Gradient edge fade for smooth entry/exit */
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 8%,
+    rgba(0, 0, 0, 1) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 8%,
+    rgba(0, 0, 0, 1) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 88px; /* Balanced spacing between logos */
+  width: max-content;
+  animation: marquee-scroll 26s linear infinite;
+}
+
+.brand-marquee-container:hover .marquee-track {
+  animation-play-state: paused; /* Pause loop on hover */
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px; /* Uniform container height */
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-item:hover {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+/* Image Uniform Scaling Styles */
+.brand-logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Specific Logo Proportion Balancing */
+.on-logo {
+  height: 48px;
+}
+
+.crocs-logo {
+  height: 46px;
+}
+
+.asics-logo {
+  height: 40px;
+}
+
+.nike-logo {
+  height: 48px;
+}
+
+.nb-logo {
+  height: 48px;
+}
+
+.adidas-logo {
+  height: 50px;
+}
+
+/* Continuous Infinite Scroll Keyframes */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .brand-marquee-section {
+    padding: 32px 0;
+  }
+
+  .marquee-track {
+    gap: 52px;
+    animation-duration: 20s;
+  }
+
+  .brand-item {
+    height: 44px;
+  }
+
+  .brand-logo-img {
+    height: 36px;
+  }
+
+  .asics-logo {
+    height: 30px;
+  }
+
+  .crocs-logo,
+  .on-logo {
+    height: 34px;
+  }
+}

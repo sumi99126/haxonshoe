@@ -1,0 +1,124 @@
+/* HAXON Features & Trust Badges Bar */
+.features-bar-section {
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #eaedf1;
+  border-bottom: 1px solid #eaedf1;
+  position: relative;
+  z-index: 10;
+}
+
+.features-bar-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 24px 24px; /* Matched exact horizontal padding with Navbar & Hero */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 8px 12px;
+  transition: transform 0.25s ease;
+}
+
+.feature-item.has-divider {
+  border-right: 1px solid #e9ecef;
+}
+
+.feature-item:hover {
+  transform: translateY(-2px);
+}
+
+.feature-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #121316;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.feature-item:hover .feature-icon-wrapper {
+  color: #d31018; /* HAXON signature red highlight on hover */
+  transform: scale(1.1);
+}
+
+.feature-icon {
+  flex-shrink: 0;
+}
+
+.feature-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.feature-title {
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #111111;
+  margin: 0;
+}
+
+.feature-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: 450;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .features-bar-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 0;
+    padding: 24px 20px;
+  }
+
+  .feature-item.has-divider {
+    border-right: none;
+  }
+
+  .feature-item:nth-child(1) {
+    border-right: 1px solid #e9ecef;
+  }
+
+  .feature-item {
+    justify-content: flex-start;
+    padding: 6px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-bar-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 10px;
+    padding: 18px 14px;
+  }
+
+  .feature-item {
+    justify-content: flex-start;
+    padding: 6px;
+    border-right: none !important;
+    border-bottom: none !important;
+    gap: 10px;
+  }
+
+  .feature-title {
+    font-size: 11px;
+  }
+
+  .feature-subtitle {
+    font-size: 10.5px;
+    white-space: normal;
+  }
+}
