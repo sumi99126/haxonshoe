@@ -170,3 +170,46 @@
     left: 100%;
   }
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 640px) {
+  .preloader-container {
+    height: 100dvh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .preloader-content {
+    gap: 16px;
+    margin: auto 0;
+  }
+
+  .preloader-logo {
+    width: 180px;
+    max-width: 65vw;
+  }
+
+  .preloader-glow {
+    width: 220px;
+    height: 220px;
+  }
+
+  .preloader-progress-track,
+  .preloader-meta {
+    width: 240px;
+    max-width: 75vw;
+  }
+
+  .preloader-tagline {
+    font-size: 10px;
+    letter-spacing: 2.8px;
+  }
+
+  .preloader-counter {
+    font-size: 12px;
+  }
+}
