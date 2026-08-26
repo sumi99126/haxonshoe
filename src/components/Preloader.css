@@ -180,36 +180,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    padding-bottom: 44px;
+    box-sizing: border-box;
   }
 
   .preloader-content {
     gap: 16px;
-    margin: auto 0;
+    margin: 0;
+    transform: translateY(-20px);
   }
 
   .preloader-logo {
-    width: 180px;
-    max-width: 65vw;
+    width: 225px;
+    max-width: 74vw;
   }
 
   .preloader-glow {
-    width: 220px;
-    height: 220px;
+    width: 260px;
+    height: 260px;
   }
 
   .preloader-progress-track,
   .preloader-meta {
-    width: 240px;
-    max-width: 75vw;
+    width: 260px;
+    max-width: 78vw;
   }
 
   .preloader-tagline {
-    font-size: 10px;
-    letter-spacing: 2.8px;
+    font-size: 10.5px;
+    letter-spacing: 3px;
   }
 
   .preloader-counter {
-    font-size: 12px;
+    font-size: 12.5px;
   }
 }
